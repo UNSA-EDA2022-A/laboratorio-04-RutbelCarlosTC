@@ -126,12 +126,15 @@ public class SinglyLinkedList<T> {
     public void deleteNth(int position) {
 
     }
+    public boolean inRange(int pos){
+        return pos >= 0 && pos <= size();
+    }
 
     public static void main(final String[] args) {
 
         // testExercicio1();
         // testExercicio2();
-        testExercicio3();       
+        //testExercicio3();       
 
     }
 
