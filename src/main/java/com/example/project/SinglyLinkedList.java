@@ -84,6 +84,8 @@ public class SinglyLinkedList<T> {
 
     // Convierte la lista para um String
     public String toString() {
+        if(!isEmpty() && first.getValue() == null)
+            return "Fuera de rango.";
         String str = "{";
         Node<T> cur = first;
         while (cur != null) {
@@ -119,7 +121,21 @@ public class SinglyLinkedList<T> {
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
     public void insertNth(T data, int position) {
-
+        if(inRange(position)){
+            if(position == 0)
+                addFirst(data);
+            else{
+                Node<T> temp = first;
+                for(int i = 0;i< position -1;i++){
+                    temp = temp.getNext();
+                }
+                temp.setNext(new Node<T>(data,temp.getNext()));
+            }
+            size++;   
+        }
+        else{
+            addFirst(null);
+        }
     }
 
     // Elimina el nodo de una posicion especifica de la lista
@@ -133,7 +149,7 @@ public class SinglyLinkedList<T> {
     public static void main(final String[] args) {
 
         // testExercicio1();
-        // testExercicio2();
+        testExercicio2();
         //testExercicio3();       
 
     }
