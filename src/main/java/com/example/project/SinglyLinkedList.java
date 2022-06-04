@@ -84,8 +84,6 @@ public class SinglyLinkedList<T> {
 
     // Convierte la lista para um String
     public String toString() {
-        if(!isEmpty() && first.getValue() == null)
-            return "Fuera de rango.";
         String str = "{";
         Node<T> cur = first;
         while (cur != null) {
@@ -134,9 +132,6 @@ public class SinglyLinkedList<T> {
             }
             size++;   
         }
-        else{
-            addFirst(null);
-        }
     }
 
     // Elimina el nodo de una posicion especifica de la lista
@@ -152,9 +147,6 @@ public class SinglyLinkedList<T> {
                 temp.setNext(temp.getNext().getNext());
             }
             size--;     
-        }
-        else{
-            addFirst(null);
         }
     }
     public boolean inRange(int pos){
