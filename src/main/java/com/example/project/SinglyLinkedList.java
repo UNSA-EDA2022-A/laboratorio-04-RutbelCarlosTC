@@ -140,7 +140,21 @@ public class SinglyLinkedList<T> {
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
-
+        if(inRange(position)){
+            if(position == 0)
+                removeFirst();
+            else{
+                Node<T> temp = first;
+                for(int i = 0;i< position -1;i++){
+                    temp = temp.getNext();
+                }
+                temp.setNext(temp.getNext().getNext());
+            }
+            size--;     
+        }
+        else{
+            addFirst(null);
+        }
     }
     public boolean inRange(int pos){
         return pos >= 0 && pos <= size();
@@ -149,8 +163,8 @@ public class SinglyLinkedList<T> {
     public static void main(final String[] args) {
 
         // testExercicio1();
-        testExercicio2();
-        //testExercicio3();       
+        //testExercicio2();
+        testExercicio3();       
 
     }
 
