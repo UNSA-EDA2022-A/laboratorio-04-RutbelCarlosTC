@@ -117,6 +117,7 @@ public class SinglyLinkedList<T> {
             }
             actual = actual.getNext();
         }
+
     }
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
@@ -157,14 +158,14 @@ public class SinglyLinkedList<T> {
         }
     }
     public boolean inRange(int pos){
-        return pos >= 0 && pos <= size();
+        return pos >= 0 && pos <= size;
     }
 
     public static void main(final String[] args) {
 
-        // testExercicio1();
+        //testExercicio1();
         //testExercicio2();
-        testExercicio3();       
+        //testExercicio3();       
 
     }
 
