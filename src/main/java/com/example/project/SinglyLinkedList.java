@@ -100,24 +100,64 @@ public class SinglyLinkedList<T> {
 
     // Elimina aquellos nodos de la lista que esten duplicados
     public void deleteDuplicates() {
+        if(size < 2){
+            return;
+        }
+        Node<T> actual = first;
+        for(int i=0; i<size()-1; i++){
+            Node<T> temp = actual;
+            for(int j=i;j<size()-1;j++){
+                if(temp.getNext().getValue().equals(actual.getValue())){
+                    temp.setNext(temp.getNext().getNext()); 
+                    size--;
+                }
+                temp = temp.getNext();
+            }
+            actual = actual.getNext();
+        }
 
     }
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
     public void insertNth(T data, int position) {
-
+        if(inRange(position)){
+            if(position == 0)
+                addFirst(data);
+            else{
+                Node<T> temp = first;
+                for(int i = 0;i< position -1;i++){
+                    temp = temp.getNext();
+                }
+                temp.setNext(new Node<T>(data,temp.getNext()));
+            }
+            size++;   
+        }
     }
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
-
+        if(inRange(position)){
+            if(position == 0)
+                removeFirst();
+            else{
+                Node<T> temp = first;
+                for(int i = 0;i< position -1;i++){
+                    temp = temp.getNext();
+                }
+                temp.setNext(temp.getNext().getNext());
+            }
+            size--;     
+        }
+    }
+    public boolean inRange(int pos){
+        return pos >= 0 && pos <= size;
     }
 
     public static void main(final String[] args) {
 
-        // testExercicio1();
-        // testExercicio2();
-        testExercicio3();       
+        //testExercicio1();
+        //testExercicio2();
+        //testExercicio3();       
 
     }
 
